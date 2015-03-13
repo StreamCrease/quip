@@ -1,0 +1,38 @@
+<div class="container">
+    <ul class="nav nav-tabs nav-justified">
+        <li role="presentation" class="active"><a href="#">Motherboards</a></li>
+        <li role="presentation"><a href="#">Processors</a></li>
+        <li role="presentation"><a href="#">Memory</a></li>
+        <li role="presentation"><a href="#">Storage</a></li>
+    </ul>
+</div>
+<div class="container">
+    <div class="well well-lg" style="border-radius: 0 0 6px 6px;">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+            </button>
+        </div>
+        <h4>Total: {{ motherboards.length }}</h4>
+        <div style="background-color: #fff">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Manufacturer</th>
+                        <th>Memory type</th>
+                        <th>Memory slots</th>
+                        <th>Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="motherboard in motherboards">
+                        <td>{{ motherboard.manufacturer }}</td>
+                        <td>{{ MEMORY_TYPES[motherboard.memoryType] }}</td>
+                        <td>{{ motherboard.memorySlots }}</td>
+                        <td>{{ motherboard.used }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
