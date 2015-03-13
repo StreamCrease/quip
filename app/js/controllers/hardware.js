@@ -4,6 +4,14 @@
 
     angular.module('quipApp').controller('HardwareController', ['$scope', function ($scope) {
 
+        $scope.tab = 0;
+        $scope.changeTab = function (newTab) {
+            $scope.tab = newTab;
+        };
+
+        $scope.isActiveTab = function (curTab) {
+            return $scope.tab === curTab;
+        };
 
         $scope.MEMORY_TYPES = {
             1: 'DDR',
