@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>quip</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="lib/js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/computers.js"></script>
+    <script src="js/controllers/hardware.js"></script>
+</head>
+<body ng-app="app" style="overflow: hidden">
+    <nav class="navbar navbar-default" style="border-radius: 0; border-top: 0">
+        <div class="container">
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+             </form>
+        </div>
+    </nav>
+    <div style="overflow-y: auto; height: 378px;">
+        <div class="container hide" ng-controller="ComputersController as main">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Processor</th>
+                        <th>Memory</th>
+                        <th>Graphics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="computer in main.computers">
+                        <td>{{ computer.name }}</td>
+                        <td>{{ computer.processor }}</td>
+                        <td>{{ computer.memory }}</td>
+                        <td>{{ computer.graphics }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <ul class="nav nav-tabs nav-justified">
+                <li role="presentation" class="active"><a href="#">Motherboards</a></li>
+                <li role="presentation"><a href="#">Processors</a></li>
+                <li role="presentation"><a href="#">Memory</a></li>
+                <li role="presentation"><a href="#">Storage</a></li>
+            </ul>
+        </div>
+        <div class="container" ng-controller="HardwareController as main">
+            <div class="well well-lg" style="border-radius: 0 0 6px 6px;">
+                <div class="pull-right">
+                    <button type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+                    </button>
+                </div>
+                <h4>Total: 5</h4>
+                <div style="background-color: #fff">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Manufacturer</th>
+                                <th>Memory type</th>
+                                <th>Memory slots</th>
+                                <th>Used</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="motherboard in main.motherboards">
+                                <td>{{ motherboard.manufacturer }}</td>
+                                <td>{{ main.MEMORY_TYPES[motherboard.memoryType] }}</td>
+                                <td>{{ motherboard.memorySlots }}</td>
+                                <td>{{ motherboard.used }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
