@@ -15,6 +15,9 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             }
         },
+        csslint: {
+            files: ['app/css/*.css']
+        },
         htmlangular: {
             options: {
                 // wrap templates as complite HTML pages
@@ -26,19 +29,21 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            files: ['<%= jshint.files %>'],
+            files: ['<%= jshint.files %>', 'app/index.html', 'app/partials/**/*.html.tmpl', 'app/css/*.css'],
             options: {
                 livereload: true
             },
-            tasks: ['jscs', 'jshint']
+            tasks: ['newer:jshint', 'newer:csslint', 'newer:htmlangular']
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-html-angular-validate');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-newer');
 
-    grunt.registerTask('default', ['jshint', 'htmlangular', 'watch']);
+    grunt.registerTask('default', ['jshint', 'csslint', 'htmlangular', 'watch']);
 
 };
