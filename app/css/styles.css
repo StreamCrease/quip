@@ -1,0 +1,31 @@
+body {
+    overflow: hidden;
+}
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
+
+.navbar {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+.main-view-block {
+    height: 378px;
+    overflow-y: auto;
+
+}
+
+.well {
+    border-radius: 0 0 6px 6px;
+}
+
+.table-wrap {
+    background: #fff;
+}
