@@ -82,7 +82,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="memor in memory">
-                            <td>{{ memor.type }}</td>
+                            <td>{{ MEMORY_TYPES[memor.type] }}</td>
                             <td>{{ memor.mSize }}</td>
                             <td>{{ memor.rate }}</td>
                             <td>{{ memor.used }}</td>
@@ -92,7 +92,7 @@
             </div>
         </div>
         <div ng-show="isActiveTab(3)">
-            <h4>Total: {{ hardware.length }}</h4>
+            <h4>Total: {{ storage.length }}</h4>
             <div class="table-wrap">
                 <table class="table table-bordered">
                     <thead>
@@ -103,8 +103,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="hardw in hardware">
-                            <td>{{ hardw.type }}</td>
+                        <tr ng-repeat="hardw in storage">
+                            <td>{{ STORAGE_TYPES[hardw.type] }}</td>
                             <td>{{ hardw.size }}</td>
                             <td>{{ hardw.used }}</td>
                         </tr>
