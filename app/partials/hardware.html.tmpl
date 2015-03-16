@@ -13,14 +13,13 @@
             <a>Storage</a>
         </li>
     </ul>
-    <div class="well well-lg">
-        <div class="pull-right" ng-controller="ModalController">
-
-            <button type="button" class="btn btn-success" ng-click="open()">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
-            </button>
-        </div>
+    <div class="well well-lg" ng-controller="ModalController">
         <div ng-show="isActiveTab(0)">
+            <div class="pull-right">
+                <button type="button" class="btn btn-success" ng-click="openMotherModal()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+                </button>
+            </div>
             <h4>Total: {{ motherboards.length }}</h4>
             <div class="table-wrap">
                 <table class="table table-bordered">
@@ -44,6 +43,11 @@
             </div>
         </div>
         <div ng-show="isActiveTab(1)">
+            <div class="pull-right">
+                <button type="button" class="btn btn-success" ng-click="openProcModal()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+                </button>
+            </div>
             <h4>Total: {{ processors.length }}</h4>
             <div class="table-wrap">
                 <table class="table table-bordered">
@@ -69,6 +73,11 @@
             </div>
         </div>
         <div ng-show="isActiveTab(2)">
+            <div class="pull-right">
+                <button type="button" class="btn btn-success" ng-click="openMemoryModal()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+                </button>
+            </div>
             <h4>Total: {{ memory.length }}</h4>
             <div class="table-wrap">
                 <table class="table table-bordered">
@@ -92,6 +101,11 @@
             </div>
         </div>
         <div ng-show="isActiveTab(3)">
+            <div class="pull-right">
+                <button type="button" class="btn btn-success" ng-click="openStorageModal()">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+                </button>
+            </div>
             <h4>Total: {{ storage.length }}</h4>
             <div class="table-wrap">
                 <table class="table table-bordered">

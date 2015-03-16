@@ -1,0 +1,14 @@
+<div class="form-group">
+    <label for="mother-manufacturer">Manufacturer:</label>
+    <input type="text" id="mother-manufacturer" class="form-control">
+</div>
+<div class="form-group">
+    <label for="mother-type">Memory type:</label>
+    <select class="form-control" id="mother-type">
+        <option ng-repeat="type in MEMORY_TYPES">{{ type }}</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="mother-slots">Memory slots:</label>
+    <input type="number" id="mother-slots" class="form-control" min="0">
+</div>

@@ -10,7 +10,7 @@ body {
 }
 
 .ngdialog.ngdialog-theme-default {
-  padding-top: 30px;
+  padding-top: 120px;
 }
 
 .navbar {
@@ -31,4 +31,8 @@ body {
 
 .table-wrap {
     background: #fff;
+}
+
+h4 {
+    line-height: 34px;
 }
