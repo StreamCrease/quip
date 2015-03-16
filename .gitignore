@@ -29,4 +29,4 @@ app/bower_components
 .lock-wscript
 
 # Grunt plugins log files
-html-angular-validate-report.json
+/log

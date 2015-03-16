@@ -18,7 +18,8 @@ module.exports = function (grunt) {
         htmlangular: {
             options: {
                 // wrap templates as complite HTML pages
-                tmplext: 'html.tmpl'
+                tmplext: 'html.tmpl',
+                reportpath: 'log/html-angular-validate-report.json'
             },
             files: {
                 src: ['app/index.html', 'app/partials/**/*.html.tmpl']
