@@ -3,7 +3,8 @@
     'use strict';
 
     var quipApp = angular.module('quipApp', [
-        'ngRoute'
+        'ngRoute',
+        'ngDialog'
     ]);
 
     quipApp.config(['$routeProvider', function ($routeProvider) {

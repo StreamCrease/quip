@@ -9,6 +9,10 @@ body {
     cursor: pointer;
 }
 
+.ngdialog.ngdialog-theme-default {
+  padding-top: 30px;
+}
+
 .navbar {
     border-top: none;
     border-left: none;

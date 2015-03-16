@@ -32,8 +32,8 @@ module.exports = function (grunt) {
             files: ['<%= jshint.files %>', 'app/index.html', 'app/partials/**/*.html.tmpl', 'app/css/*.css'],
             options: {
                 livereload: true
-            },
-            tasks: ['newer:jshint', 'newer:csslint', 'newer:htmlangular']
+            }
+            // tasks: ['newer:jshint', 'newer:csslint', 'newer:htmlangular']
         }
     });
 
