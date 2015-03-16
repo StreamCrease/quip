@@ -27,3 +27,6 @@ app/bower_components
 
 # Users Environment Variables
 .lock-wscript
+
+# Grunt plugins log files
+html-angular-validate-report.json

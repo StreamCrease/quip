@@ -15,6 +15,15 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             }
         },
+        htmlangular: {
+            options: {
+                // wrap templates as complite HTML pages
+                tmplext: 'html.tmpl'
+            },
+            files: {
+                src: ['app/index.html', 'app/partials/**/*.html.tmpl']
+            }
+        },
         watch: {
             files: ['<%= jshint.files %>'],
             options: {
@@ -26,8 +35,9 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jscs');
+    grunt.loadNpmTasks('grunt-html-angular-validate');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['jshint', 'jscs', 'watch']);
+    grunt.registerTask('default', ['jshint', 'htmlangular', 'watch']);
 
 };
