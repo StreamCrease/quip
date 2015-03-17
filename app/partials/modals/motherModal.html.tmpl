@@ -1,22 +1,34 @@
-<div class="card-body">
-    <div class="form-group">
-        <label for="mother-manufacturer">Manufacturer:</label>
-        <input type="text" id="mother-manufacturer" class="form-control">
+<form name="motherForm" novalidate ng-submit="submitMother()" ng-controller="FormController">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="mother-manufacturer">Manufacturer:</label>
+            <input type="text" id="mother-manufacturer" name="manufact" class="form-control" ng-model="motherFormData.manufact" required>
+            <div class="error-container" ng-show="motherForm.manufact.$dirty && motherForm.manufact.$invalid">
+                <small class="error" ng-show="motherForm.manufact.$error.required">This field is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mother-type">Memory type:</label>
+            <select class="form-control" id="mother-type" name="memtype" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-model="motherFormData.memtype" required>
+                <option value="">Select memory type</option>
+            </select>
+            <div class="error-container" ng-show="motherForm.memtype.$dirty && motherForm.memtype.$invalid">
+                <small class="error" ng-show="motherForm.memtype.$error.required">Please selct memory type</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mother-slots">Memory slots:</label>
+            <input type="number" id="mother-slots" name="slots" class="form-control" min="0" ng-model="motherFormData.slots" required>
+            <div class="error-container" ng-show="motherForm.slots.$dirty && motherForm.slots.$invalid">
+                <small class="error" ng-show="motherForm.slots.$error.required">Please selct memory type</small>
+                <small class="error" ng-show="motherForm.slots.$error.number">Only numbers</small>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="mother-type">Memory type:</label>
-        <select class="form-control" id="mother-type">
-            <option ng-repeat="type in MEMORY_TYPES">{{ type }}</option>
-        </select>
+    <div class="modal-action clearfix">
+        <div class="pull-right">
+            <input type="submit" class="btn btn-success" value="Add" ng-disabled="motherForm.$invalid">
+            <button type="button" class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="mother-slots">Memory slots:</label>
-        <input type="number" id="mother-slots" class="form-control" min="0">
-    </div>
-</div>
-<div class="card-action-bar clearfix">
-    <div class="pull-right">
-        <button type="button" class="btn btn-success" ng-click="confirm()">Add</button>
-        <button type="button" class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
-    </div>
-</div>
+</form>

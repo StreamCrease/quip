@@ -4,15 +4,15 @@
 
     angular.module('quipApp').controller('ModalController', ['$scope', 'ngDialog', function ($scope, ngDialog) {
 
-        $scope.MEMORY_TYPES = {
-            1: 'DDR',
-            2: 'DDR2',
-            3: 'DDR3'
-        };
-        $scope.STORAGE_TYPES = {
-            1: 'HDD',
-            2: 'SSD'
-        };
+        $scope.MEMORY_TYPES = [
+            { id: 1, name: 'DDR' },
+            { id: 2, name: 'DDR2'},
+            { id: 3, name: 'DDR3'}
+        ];
+        $scope.STORAGE_TYPES = [
+            { id: 1, name: 'HDD' },
+            { id: 2, name: 'SSD'}
+        ];
 
         $scope.openMotherModal = function () {
             ngDialog.open({

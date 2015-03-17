@@ -12,6 +12,7 @@ body {
 .ngdialog.ngdialog-theme-default .ngdialog-content {
     padding: 0;
 }
+
 .ngdialog.ngdialog-theme-default {
   padding-top: 120px;
 }
@@ -60,13 +61,36 @@ h4 {
     line-height: 34px;
 }
 
-.card-body{
-    padding: 20px 20px 10px;
+.modal-body {
+    padding: 30px 20px 10px;
 }
 
-.card-action-bar{
+.modal-action {
     padding: 20px 20px;
     background: #f5f5f5;
     border-top: 1px solid #ddd;
     border-radius: 0 0 5px 5px;
+}
+
+/* Form validation styles*/
+.ng-dirty.ng-valid {
+    border-color: #24A92D;
+}
+
+.ng-dirty.ng-invalid {
+    border-color: #D11C26;
+}
+
+.ng-dirty.ng-invalid.form-control:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(209, 28, 38, .6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(209, 28, 38, .6);
+}
+
+.ng-dirty.ng-valid.form-control:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(36, 169, 45, .6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(36, 169, 45, .6);
+}
+
+.error-container .error {
+    color: #D11C26;
 }
