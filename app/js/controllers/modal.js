@@ -38,6 +38,11 @@
                 scope: $scope
             });
         };
+        $scope.openComputerModal = function () {
+            ngDialog.open({
+                template: 'partials/modals/computerModal.html.tmpl',
+                scope: $scope
+            });
+        };
     }]);
-
 })();

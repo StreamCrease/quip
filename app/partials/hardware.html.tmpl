@@ -1,130 +1,128 @@
-<div class="container">
-    <ul class="nav nav-tabs nav-justified">
-        <li ng-class="{'active': isActiveTab(0)}" ng-click="changeTab(0)" role="presentation">
-            <a>Motherboards</a>
-        </li>
-        <li ng-class="{'active': isActiveTab(1)}" ng-click="changeTab(1)" role="presentation">
-            <a>Processors</a>
-        </li>
-        <li ng-class="{'active': isActiveTab(2)}" ng-click="changeTab(2)" role="presentation">
-            <a>Memory</a>
-        </li>
-        <li ng-class="{'active': isActiveTab(3)}" ng-click="changeTab(3)" role="presentation">
-            <a>Storage</a>
-        </li>
-    </ul>
-    <div class="well well-lg" ng-controller="ModalController">
-        <div ng-show="isActiveTab(0)">
-            <div class="pull-right">
-                <button type="button" class="btn btn-success" ng-click="openMotherModal()">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
-                </button>
-            </div>
-            <h4>Total: {{ motherboards.length }}</h4>
-            <div class="table-wrap">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Manufacturer</th>
-                            <th>Memory type</th>
-                            <th>Memory slots</th>
-                            <th>Used</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="motherboard in motherboards">
-                            <td>{{ motherboard.manufacturer }}</td>
-                            <td>{{ MEMORY_TYPES[motherboard.memoryType] }}</td>
-                            <td>{{ motherboard.memorySlots }}</td>
-                            <td>{{ motherboard.used }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<ul class="nav nav-tabs nav-justified">
+    <li ng-class="{'active': isActiveTab(0)}" ng-click="changeTab(0)" role="presentation">
+        <a>Motherboards</a>
+    </li>
+    <li ng-class="{'active': isActiveTab(1)}" ng-click="changeTab(1)" role="presentation">
+        <a>Processors</a>
+    </li>
+    <li ng-class="{'active': isActiveTab(2)}" ng-click="changeTab(2)" role="presentation">
+        <a>Memory</a>
+    </li>
+    <li ng-class="{'active': isActiveTab(3)}" ng-click="changeTab(3)" role="presentation">
+        <a>Storage</a>
+    </li>
+</ul>
+<div class="tabs-container" ng-controller="ModalController">
+    <div ng-show="isActiveTab(0)">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="openMotherModal()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+            </button>
         </div>
-        <div ng-show="isActiveTab(1)">
-            <div class="pull-right">
-                <button type="button" class="btn btn-success" ng-click="openProcModal()">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
-                </button>
-            </div>
-            <h4>Total: {{ processors.length }}</h4>
-            <div class="table-wrap">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Manufacturer</th>
-                            <th>Frequency</th>
-                            <th>Cores</th>
-                            <th>Name</th>
-                            <th>Used</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="processor in processors">
-                            <td>{{ processor.manufacturer }}</td>
-                            <td>{{ processor.frequency }}</td>
-                            <td>{{ processor.cores }}</td>
-                            <td>{{ processor.name }}</td>
-                            <td>{{ processor.used }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h4>Total: {{ motherboards.length }}</h4>
+        <div class="table-wrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Manufacturer</th>
+                        <th>Memory type</th>
+                        <th>Memory slots</th>
+                        <th>Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="motherboard in motherboards">
+                        <td>{{ motherboard.manufacturer }}</td>
+                        <td>{{ MEMORY_TYPES[motherboard.memoryType] }}</td>
+                        <td>{{ motherboard.memorySlots }}</td>
+                        <td>{{ motherboard.used }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div ng-show="isActiveTab(2)">
-            <div class="pull-right">
-                <button type="button" class="btn btn-success" ng-click="openMemoryModal()">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
-                </button>
-            </div>
-            <h4>Total: {{ memory.length }}</h4>
-            <div class="table-wrap">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>mSize</th>
-                            <th>Rate</th>
-                            <th>Used</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="memor in memory">
-                            <td>{{ MEMORY_TYPES[memor.type] }}</td>
-                            <td>{{ memor.mSize }}</td>
-                            <td>{{ memor.rate }}</td>
-                            <td>{{ memor.used }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    </div>
+    <div ng-show="isActiveTab(1)">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="openProcModal()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+            </button>
         </div>
-        <div ng-show="isActiveTab(3)">
-            <div class="pull-right">
-                <button type="button" class="btn btn-success" ng-click="openStorageModal()">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
-                </button>
-            </div>
-            <h4>Total: {{ storage.length }}</h4>
-            <div class="table-wrap">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>Size</th>
-                            <th>Used</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="hardw in storage">
-                            <td>{{ STORAGE_TYPES[hardw.type] }}</td>
-                            <td>{{ hardw.size }}</td>
-                            <td>{{ hardw.used }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <h4>Total: {{ processors.length }}</h4>
+        <div class="table-wrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Manufacturer</th>
+                        <th>Frequency</th>
+                        <th>Cores</th>
+                        <th>Name</th>
+                        <th>Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="processor in processors">
+                        <td>{{ processor.manufacturer }}</td>
+                        <td>{{ processor.frequency }}</td>
+                        <td>{{ processor.cores }}</td>
+                        <td>{{ processor.name }}</td>
+                        <td>{{ processor.used }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ng-show="isActiveTab(2)">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="openMemoryModal()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+            </button>
+        </div>
+        <h4>Total: {{ memory.length }}</h4>
+        <div class="table-wrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>mSize</th>
+                        <th>Rate</th>
+                        <th>Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="memor in memory">
+                        <td>{{ MEMORY_TYPES[memor.type] }}</td>
+                        <td>{{ memor.mSize }}</td>
+                        <td>{{ memor.rate }}</td>
+                        <td>{{ memor.used }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ng-show="isActiveTab(3)">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="openStorageModal()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+            </button>
+        </div>
+        <h4>Total: {{ storage.length }}</h4>
+        <div class="table-wrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="hardw in storage">
+                        <td>{{ STORAGE_TYPES[hardw.type] }}</td>
+                        <td>{{ hardw.size }}</td>
+                        <td>{{ hardw.used }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

@@ -9,6 +9,9 @@ body {
     cursor: pointer;
 }
 
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    padding: 0;
+}
 .ngdialog.ngdialog-theme-default {
   padding-top: 120px;
 }
@@ -25,8 +28,27 @@ body {
     overflow-y: auto;
 }
 
-.well {
+.tabs-container {
+    min-height: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
     border-radius: 0 0 6px 6px;
+    border-bottom: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
+    border-left: 1px solid #e3e3e3;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    background: #f5f5f5;
+}
+
+.nav-tabs.nav-justified>.active>a,
+.nav-tabs.nav-justified>.active>a:focus,
+.nav-tabs.nav-justified>.active>a:hover {
+    border-bottom-color: #f5f5f5;
 }
 
 .table-wrap {
@@ -34,5 +56,17 @@ body {
 }
 
 h4 {
+    margin-top: 0;
     line-height: 34px;
+}
+
+.card-body{
+    padding: 20px 20px 10px;
+}
+
+.card-action-bar{
+    padding: 20px 20px;
+    background: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
 }

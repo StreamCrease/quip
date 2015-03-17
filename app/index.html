@@ -10,21 +10,15 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" ng-controller="HeaderController">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" ng-controller="HeaderController">
+            <div class="navbar-header pull-left" >
                 <ul class="nav navbar-nav">
                     <li ng-class="{ active: isActive('/computers')}"><a href="#/computers">Computers</a></li>
                     <li ng-class="{ active: isActive('/hardware')}"><a href="#/hardware">Hardware</a></li>
                 </ul>
+            </div>
+            <div class="navbar-header pull-right">
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
@@ -34,7 +28,9 @@
         </div>
     </nav>
     <div class="main-view-block">
-        <div ng-view></div>
+        <div class="container">
+            <div ng-view></div>
+        </div>
     </div>
 
     <script src="bower_components/angular/angular.js"></script>
