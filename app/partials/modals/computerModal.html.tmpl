@@ -2,7 +2,7 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="comp-name">Name:</label>
-            <input type="text" id="comp-name" name="name" class="form-control" ng-model="computerFormData.name" required >
+            <input type="text" id="comp-name" name="name" class="form-control" ng-model="computerFormData.name" required>
             <div class="error-container" ng-show="computerForm.name.$dirty && computerForm.name.$invalid">
                 <small class="error" ng-show="computerForm.name.$error.required">Computer name is required</small>
             </div>
@@ -10,7 +10,7 @@
         <div class="form-group">
             <label for="comp-mother">Motherboard:</label>
             <div class="input-group">
-                <select class="form-control" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
+                <select class="form-control" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.memoryID" required>
                     <option value="">Select motherboard</option>
                 </select>
                 <span class="input-group-btn">
@@ -35,18 +35,20 @@
                 <small class="error" ng-show="computerForm.proc.$error.required">Please select computer processor</small>
             </div>
         </div>
-        <div class="form-group">
-            <label for="comp-memory">Memory:</label>
-            <div class="input-group">
-                <select class="form-control" id="comp-memory" name="memory" ng-model="computerFormData.memoryID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
-                    <option value="">Select memory</option>
-                </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="openMemoryModal()">Add</button>
-                </span>
-            </div>
-            <div class="error-container" ng-show="computerForm.memory.$dirty && computerForm.memory.$invalid">
-                <small class="error" ng-show="computerForm.memory.$error.required">Please select computer memory</small>
+        <div ng-controller="SelectController">
+            <div class="form-group">
+                <label for="comp-memory">Memory:</label>
+                <div class="input-group">
+                    <select class="form-control" id="comp-memory" name="memory" ng-model="computerFormData.memoryID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="!computerFormData.motherID" required>
+                        <option value="">Select memory</option>
+                    </select>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="openMemoryModal()">Add</button>
+                    </span>
+                </div>
+                <div class="error-container" ng-show="computerForm.memory.$dirty && computerForm.memory.$invalid">
+                    <small class="error" ng-show="computerForm.memory.$error.required">Please select computer memory</small>
+                </div>
             </div>
         </div>
         <div class="form-group">

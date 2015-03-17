@@ -18,7 +18,7 @@
             2: 'DDR2',
             3: 'DDR3'
         };
-        
+
         $scope.STORAGE_TYPES = {
             1: 'HDD',
             2: 'SSD'
