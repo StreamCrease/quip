@@ -1,10 +1,11 @@
-/* global angular, alert */
+/* global angular */
 (function () {
     'use strict';
 
     angular.module('quipApp').controller('SelectController', ['$scope', function ($scope) {
-        $scope.update = function () {
-            alert(angular.toJson($scope.computerFormData));
-        };
+        $scope.currentSlot = 1;
+        $scope.motherboard = {
+            slots: 4
+        }
     }]);
 })();
