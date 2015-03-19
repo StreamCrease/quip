@@ -9,14 +9,14 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Processor</th>
-                    <th>Memory</th>
-                    <th>Graphics</th>
+                    <th class="sortable" ng-click="orderByField='name'; reverseSort=!reverseSort">Name</th>
+                    <th class="sortable" ng-click="orderByField='processor'; reverseSort=!reverseSort">Processor</th>
+                    <th class="sortable" ng-click="orderByField='memory'; reverseSort=!reverseSort">Memory</th>
+                    <th class="sortable" ng-click="orderByField='graphics'; reverseSort=!reverseSort">Graphics</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="computer in computers">
+                <tr ng-repeat="computer in computers | filter:query | orderBy:orderByField:!reverseSort">
                     <td>{{ computer.name }}</td>
                     <td>{{ computer.processor }}</td>
                     <td>{{ computer.memory }}</td>

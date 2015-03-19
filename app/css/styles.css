@@ -56,6 +56,10 @@ body {
     background: #fff;
 }
 
+.sortable {
+    cursor: pointer;
+}
+
 h4 {
     margin-top: 0;
     line-height: 34px;
