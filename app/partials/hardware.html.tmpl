@@ -1,15 +1,15 @@
 <ul class="nav nav-tabs nav-justified">
-    <li ng-class="{'active': isActiveTab(0)}" ng-click="changeTab(0)" role="presentation">
-        <a tabindex="4">Motherboards</a>
+    <li ng-class="{'active': isActiveTab(0)}" ng-click="changeTab(0)" ng-keypress="($event.which === 13)?changeTab(0):false" tabindex="4" role="presentation">
+        <a>Motherboards</a>
     </li>
-    <li ng-class="{'active': isActiveTab(1)}" ng-click="changeTab(1)" role="presentation">
-        <a tabindex="5">Processors</a>
+    <li ng-class="{'active': isActiveTab(1)}" ng-click="changeTab(1)" ng-keypress="($event.which === 13)?changeTab(1):false" tabindex="5" role="presentation">
+        <a>Processors</a>
     </li>
-    <li ng-class="{'active': isActiveTab(2)}" ng-click="changeTab(2)" role="presentation">
-        <a tabindex="6">Memory</a>
+    <li ng-class="{'active': isActiveTab(2)}" ng-click="changeTab(2)" ng-keypress="($event.which === 13)?changeTab(2):false" tabindex="6" role="presentation">
+        <a>Memory</a>
     </li>
-    <li ng-class="{'active': isActiveTab(3)}" ng-click="changeTab(3)" role="presentation">
-        <a tabindex="7">Storage</a>
+    <li ng-class="{'active': isActiveTab(3)}" ng-click="changeTab(3)" ng-keypress="($event.which === 13)?changeTab(3):false" tabindex="7" role="presentation">
+        <a>Storage</a>
     </li>
 </ul>
 <div class="tabs-container" ng-controller="ModalController">
