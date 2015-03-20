@@ -2,14 +2,14 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="mother-manufacturer">Manufacturer:</label>
-            <input type="text" id="mother-manufacturer" name="manufact" class="form-control" ng-model="motherFormData.manufact" required>
+            <input type="text" id="mother-manufacturer" name="manufact" class="form-control validate" ng-model="motherFormData.manufact" required>
             <div class="error-container" ng-show="motherForm.manufact.$dirty && motherForm.manufact.$invalid">
                 <small class="error" ng-show="motherForm.manufact.$error.required">This field is required</small>
             </div>
         </div>
         <div class="form-group">
             <label for="mother-type">Memory type:</label>
-            <select class="form-control" id="mother-type" name="memtype" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-model="motherFormData.memtype" required>
+            <select class="form-control validate" id="mother-type" name="memtype" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-model="motherFormData.memtype" required>
                 <option value="">Select memory type</option>
             </select>
             <div class="error-container" ng-show="motherForm.memtype.$dirty && motherForm.memtype.$invalid">
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="mother-slots">Memory slots:</label>
-            <input type="number" id="mother-slots" name="slots" class="form-control" min="0" ng-model="motherFormData.slots" required>
+            <input type="number" id="mother-slots" name="slots" class="form-control validate" min="0" ng-model="motherFormData.slots" required>
             <div class="error-container" ng-show="motherForm.slots.$dirty && motherForm.slots.$invalid">
                 <small class="error" ng-show="motherForm.slots.$error.required">Please selct memory type</small>
                 <small class="error" ng-show="motherForm.slots.$error.number">Only numbers</small>

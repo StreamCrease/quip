@@ -13,7 +13,7 @@
                 option.text = 'Slot ' + attr.slot;
                 element[0].removeAttribute('data-cust-bind-model');
                 select.setAttribute('ng-model', attr.custBindModel);
-                $compile(element.contents())(scope);
+                $compile(select)(scope);
 
                 scope.$watch('computerFormData.slot' + scope.currentSlot + 'memoryID', function (newValue, oldValue) {
                     if (oldValue === undefined && !!newValue) {

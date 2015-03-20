@@ -2,14 +2,14 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="proc-manufacturer">Manufacturer:</label>
-            <input type="text" id="proc-manufacturer" class="form-control" name="manufact" ng-model="procFormData.manufact" required>
+            <input type="text" id="proc-manufacturer" class="form-control validate" name="manufact" ng-model="procFormData.manufact" required>
             <div class="error-container" ng-show="procForm.manufact.$dirty && procForm.manufact.$invalid">
                 <small class="error" ng-show="procForm.manufact.$error.required">This field is required</small>
             </div>
         </div>
         <div class="form-group">
             <label for="proc-name">Name:</label>
-            <input type="text" id="proc-name" class="form-control" name="name" ng-model="procFormData.name" required>
+            <input type="text" id="proc-name" class="form-control validate" name="name" ng-model="procFormData.name" required>
             <div class="error-container" ng-show="procForm.name.$dirty && procForm.name.$invalid">
                 <small class="error" ng-show="procForm.name.$error.required">This field is required</small>
             </div>
@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="proc-freq">Frequency:</label>
             <div class="input-group">
-                <input type="number" id="proc-freq" class="form-control" name="freq" aria-describedby="proc-addon" min="0" ng-model="procFormData.freq" required>
+                <input type="number" id="proc-freq" class="form-control validate" name="freq" aria-describedby="proc-addon" min="0" ng-model="procFormData.freq" required>
                 <span class="input-group-addon" id="proc-addon">GHz</span>
             </div>
             <div class="error-container" ng-show="procForm.freq.$dirty && procForm.freq.$invalid">
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label for="mother-cores">Cores:</label>
-            <input type="number" id="mother-cores" class="form-control" name="cores" min="0" ng-model="procFormData.cores" required>
+            <input type="number" id="mother-cores" class="form-control validate" name="cores" min="0" ng-model="procFormData.cores" required>
             <div class="error-container" ng-show="procForm.cores.$dirty && procForm.cores.$invalid">
                 <small class="error" ng-show="procForm.cores.$error.required">This field is required</small>
                 <small class="error" ng-show="procForm.cores.$error.number">Only numbers</small>

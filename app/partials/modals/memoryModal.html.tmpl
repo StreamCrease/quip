@@ -2,7 +2,7 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="memory-type">Type:</label>
-            <select class="form-control" id="memory-type" name="memtype" ng-model="memoryFormData.memtype" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
+            <select class="form-control validate" id="memory-type" name="memtype" ng-model="memoryFormData.memtype" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
                 <option value="">Select type</option>
             </select>
             <div class="error-container" ng-show="memoryForm.memtype.$dirty && memoryForm.memtype.$invalid">
@@ -12,7 +12,7 @@
         <div class="form-group">
             <label for="memory-size">Size:</label>
             <div class="input-group">
-                <input type="number" id="memory-size" name="size" class="form-control" min="0" aria-describedby="memory-size-addon" ng-model="memoryFormData.size" required>
+                <input type="number" id="memory-size" name="size" class="form-control validate" min="0" aria-describedby="memory-size-addon" ng-model="memoryFormData.size" required>
                 <span class="input-group-addon" id="memory-size-addon">GB</span>
             </div>
             <div class="error-container" ng-show="memoryForm.size.$dirty && memoryForm.size.$invalid">
@@ -23,7 +23,7 @@
         <div class="form-group">
             <label for="memory-rate">Rates:</label>
             <div class="input-group">
-                <input type="number" id="memory-rate" name="rates" class="form-control" min="0" aria-describedby="memry-rate-addon" ng-model="memoryFormData.rates">
+                <input type="number" id="memory-rate" name="rates" class="form-control validate" min="0" aria-describedby="memry-rate-addon" ng-model="memoryFormData.rates">
                 <span class="input-group-addon" id="memry-rate-addon">MHz</span>
             </div>
             <div class="error-container" ng-show="memoryForm.rates.$dirty && memoryForm.rates.$invalid">

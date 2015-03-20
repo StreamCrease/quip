@@ -2,7 +2,7 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="comp-name">Name:</label>
-            <input type="text" id="comp-name" name="name" class="form-control" ng-model="computerFormData.name" required>
+            <input type="text" id="comp-name" name="name" class="form-control validate" ng-model="computerFormData.name" required>
             <div class="error-container" ng-show="computerForm.name.$dirty && computerForm.name.$invalid">
                 <small class="error" ng-show="computerForm.name.$error.required">Computer name is required</small>
             </div>
@@ -10,7 +10,7 @@
         <div class="form-group">
             <label for="comp-mother">Motherboard:</label>
             <div class="input-group">
-                <select class="form-control" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.slot1memoryID || computerFormData.slot2memoryID ||
+                <select class="form-control validate" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.slot1memoryID || computerFormData.slot2memoryID ||
                 computerFormData.slot3memoryID ||
                 computerFormData.slot4memoryID" required>
                     <option value="">Select motherboard</option>
@@ -30,7 +30,7 @@
         <div class="form-group">
             <label for="comp-proc">Processor:</label>
             <div class="input-group">
-                <select class="form-control" id="comp-proc" name="proc" ng-model="computerFormData.procID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
+                <select class="form-control validate" id="comp-proc" name="proc" ng-model="computerFormData.procID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
                     <option value="">Select processor</option>
                 </select>
                 <span class="input-group-btn">
@@ -44,7 +44,7 @@
         <div class="form-group">
             <label for="comp-storage">Storage:</label>
             <div class="input-group">
-                <select class="form-control" id="comp-storage" name="storage" ng-model="computerFormData.storageID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
+                <select class="form-control validate" id="comp-storage" name="storage" ng-model="computerFormData.storageID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
                     <option value="">Select storage</option>
                 </select>
                 <span class="input-group-btn">
