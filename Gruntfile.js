@@ -10,9 +10,17 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-            files: ['Gruntfile.js', 'app/js/**/*.js', 'test/**/*.js'],
             options: {
                 jshintrc: '.jshintrc'
+            },
+            core: {
+                src: ['Gruntfile.js', 'app/js/**/*.js']
+            },
+            test: {
+                src: 'test/**/*.js',
+                options: {
+                    jshintrc: 'test/.jshintrc'
+                }
             }
         },
         csslint: {
@@ -30,7 +38,7 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            files: ['<%= jshint.files %>', 'app/index.html', 'app/partials/**/*.html.tmpl', 'app/css/*.css'],
+            files: ['app/js/**/*.js', 'app/index.html', 'app/partials/**/*.html.tmpl', 'app/css/*.css'],
             options: {
                 livereload: true
             }
