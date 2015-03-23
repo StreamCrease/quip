@@ -1,23 +1,22 @@
 /* global angular */
 (function () {
-  'use strict';
+    'use strict';
 
-  var quipApp = angular.module('quipApp', [
-    'ngRoute'
-  ]);
+    var quipApp = angular.module('quipApp', [
+        'ngRoute',
+        'ngDialog'
+    ]);
 
-  quipApp.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.
-      when('/computers', {
-        templateUrl: 'partials/computers.html',
-        controller: 'ComputersController'
-      }).
-      when('/hardware', {
-        templateUrl: 'partials/hardware.html',
-        controller: 'HardwareController'
-      }).
-      otherwise({
-        redirectTo: '/computers'
-      })
-  }]);
+    quipApp.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/computers', {
+                templateUrl: 'partials/computers.html.tmpl',
+                controller: 'ComputersController'
+            }).when('/hardware', {
+                templateUrl: 'partials/hardware.html.tmpl',
+                controller: 'HardwareController'
+            }).otherwise({
+                redirectTo: '/computers'
+            })
+    }]);
+
 })();

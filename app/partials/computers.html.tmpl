@@ -1,0 +1,28 @@
+<div class="well well-lg" ng-controller="ModalController">
+    <div class="pull-right">
+        <button type="button" class="btn btn-success" ng-click="openComputerModal()">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+        </button>
+    </div>
+    <h4>Total: {{ computers.length }}</h4>
+    <div class="table-wrap">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="sortable" ng-click="orderByField='name'; reverseSort=!reverseSort">Name</th>
+                    <th class="sortable" ng-click="orderByField='processor'; reverseSort=!reverseSort">Processor</th>
+                    <th class="sortable" ng-click="orderByField='memory'; reverseSort=!reverseSort">Memory</th>
+                    <th class="sortable" ng-click="orderByField='graphics'; reverseSort=!reverseSort">Graphics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="computer in computers | filter:query | orderBy:orderByField:!reverseSort">
+                    <td>{{ computer.name }}</td>
+                    <td>{{ computer.processor }}</td>
+                    <td>{{ computer.memory }}</td>
+                    <td>{{ computer.graphics }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

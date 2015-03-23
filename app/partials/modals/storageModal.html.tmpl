@@ -1,0 +1,30 @@
+<form name="storageForm" novalidate ng-submit="submit()">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="storage-type">Type:</label>
+            <select class="form-control validate" id="storage-type" name="strtype" ng-model="storageFormData.strtype" ng-options="type.id as type.name for type in STORAGE_TYPES" required>
+                <option value="">Select storage type</option>
+            </select>
+            <div class="error-container" ng-show="storageForm.strtype.$dirty && storageForm.strtype.$invalid">
+                <small class="error" ng-show="storageForm.strtype.$error.required">Please select storage type</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="storage-size">Size:</label>
+            <div class="input-group">
+                <input type="number" id="storage-size" class="form-control validate" name="size" min="0" aria-describedby="storage-size-addon" ng-model="storageFormData.size" required>
+                <span class="input-group-addon" id="storage-size-addon">GB</span>
+            </div>
+            <div class="error-container" ng-show="storageForm.size.$dirty && storageForm.size.$invalid">
+                <small class="error" ng-show="storageForm.size.$error.required">This field is required</small>
+                <small class="error" ng-show="storageForm.size.$error.number">Only numbers</small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-action clearfix">
+        <div class="pull-right">
+            <input type="submit" class="btn btn-success" value="Add" ng-disabled="storageForm.$invalid">
+            <button type="button" class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
+        </div>
+    </div>
+</form>

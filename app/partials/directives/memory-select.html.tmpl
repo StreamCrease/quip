@@ -1,0 +1,12 @@
+<div class="form-group">
+    <div class="input-group" >
+        <select class="form-control" name="memory" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="!computerFormData.motherID">
+            <option value="">Slot</option>
+        </select>
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="openMemoryModal()">Add</button>
+        </span>
+    </div>
+</div>
+
+

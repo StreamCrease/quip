@@ -1,0 +1,128 @@
+<ul class="nav nav-tabs nav-justified">
+    <li ng-class="{'active': isActiveTab(0)}" ng-click="changeTab(0)" ng-keypress="($event.which === 13)?changeTab(0):false" tabindex="4" role="presentation">
+        <a>Motherboards</a>
+    </li>
+    <li ng-class="{'active': isActiveTab(1)}" ng-click="changeTab(1)" ng-keypress="($event.which === 13)?changeTab(1):false" tabindex="5" role="presentation">
+        <a>Processors</a>
+    </li>
+    <li ng-class="{'active': isActiveTab(2)}" ng-click="changeTab(2)" ng-keypress="($event.which === 13)?changeTab(2):false" tabindex="6" role="presentation">
+        <a>Memory</a>
+    </li>
+    <li ng-class="{'active': isActiveTab(3)}" ng-click="changeTab(3)" ng-keypress="($event.which === 13)?changeTab(3):false" tabindex="7" role="presentation">
+        <a>Storage</a>
+    </li>
+</ul>
+<div class="tabs-container" ng-controller="ModalController">
+    <div ng-show="isActiveTab(0)">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="openMotherModal()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+            </button>
+        </div>
+        <h4>Total: {{ motherboards.length }}</h4>
+        <div class="table-wrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="sortable" ng-click="orderByField='manufacturer'; reverseSort=!reverseSort">Manufacturer</th>
+                        <th class="sortable" ng-click="orderByField='MEMORY_TYPES[motherboard.memoryType]'; reverseSort=!reverseSort">Memory type</th>
+                        <th class="sortable" ng-click="orderByField='memorySlots'; reverseSort=!reverseSort">Memory slots</th>
+                        <th class="sortable" ng-click="orderByField='used'; reverseSort=!reverseSort">Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="motherboard in motherboards | filter:query | orderBy:orderByField:!reverseSort">
+                        <td>{{ motherboard.manufacturer }}</td>
+                        <td>{{ MEMORY_TYPES[motherboard.memoryType] }}</td>
+                        <td>{{ motherboard.memorySlots }}</td>
+                        <td>{{ motherboard.used }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ng-show="isActiveTab(1)">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="openProcModal()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+            </button>
+        </div>
+        <h4>Total: {{ processors.length }}</h4>
+        <div class="table-wrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="sortable" ng-click="orderByField='manufacturer'; reverseSort=!reverseSort">Manufacturer</th>
+                        <th class="sortable" ng-click="orderByField='frequency'; reverseSort=!reverseSort">Frequency</th>
+                        <th class="sortable" ng-click="orderByField='cores'; reverseSort=!reverseSort">Cores</th>
+                        <th class="sortable" ng-click="orderByField='name'; reverseSort=!reverseSort">Name</th>
+                        <th class="sortable" ng-click="orderByField='used'; reverseSort=!reverseSort">Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="processor in processors | filter:query | orderBy:orderByField:!reverseSort">
+                        <td>{{ processor.manufacturer }}</td>
+                        <td>{{ processor.frequency }}</td>
+                        <td>{{ processor.cores }}</td>
+                        <td>{{ processor.name }}</td>
+                        <td>{{ processor.used }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ng-show="isActiveTab(2)">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="openMemoryModal()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+            </button>
+        </div>
+        <h4>Total: {{ memory.length }}</h4>
+        <div class="table-wrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="sortable" ng-click="orderByField='MEMORY_TYPES[mem.type]'; reverseSort=!reverseSort">Type</th>
+                        <th class="sortable" ng-click="orderByField='mSize'; reverseSort=!reverseSort">mSize</th>
+                        <th class="sortable" ng-click="orderByField='rate'; reverseSort=!reverseSort">Rate</th>
+                        <th class="sortable" ng-click="orderByField='used'; reverseSort=!reverseSort">Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="mem in memory | filter:query | orderBy:orderByField:!reverseSort">
+                        <td>{{ MEMORY_TYPES[mem.type] }}</td>
+                        <td>{{ mem.mSize }}</td>
+                        <td>{{ mem.rate }}</td>
+                        <td>{{ mem.used }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ng-show="isActiveTab(3)">
+        <div class="pull-right">
+            <button type="button" class="btn btn-success" ng-click="openStorageModal()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+            </button>
+        </div>
+        <h4>Total: {{ storage.length }}</h4>
+        <div class="table-wrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="sortable" ng-click="orderByField='STORAGE_TYPES[hardw.type]'; reverseSort=!reverseSort">Type</th>
+                        <th class="sortable" ng-click="orderByField='size'; reverseSort=!reverseSort">Size</th>
+                        <th class="sortable" ng-click="orderByField='used'; reverseSort=!reverseSort">Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="hardw in storage | filter:query | orderBy:orderByField:!reverseSort">
+                        <td>{{ STORAGE_TYPES[hardw.type] }}</td>
+                        <td>{{ hardw.size }}</td>
+                        <td>{{ hardw.used }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

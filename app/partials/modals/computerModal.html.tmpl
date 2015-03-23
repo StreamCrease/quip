@@ -1,0 +1,65 @@
+<form name="computerForm" novalidate ng-controller="FormController" ng-submit="submitComp()">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="comp-name">Name:</label>
+            <input type="text" id="comp-name" name="name" class="form-control validate" ng-model="computerFormData.name" required>
+            <div class="error-container" ng-show="computerForm.name.$dirty && computerForm.name.$invalid">
+                <small class="error" ng-show="computerForm.name.$error.required">Computer name is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="comp-mother">Motherboard:</label>
+            <div class="input-group">
+                <select class="form-control validate" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.slot1memoryID || computerFormData.slot2memoryID ||
+                computerFormData.slot3memoryID ||
+                computerFormData.slot4memoryID" required>
+                    <option value="">Select motherboard</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="openMotherModal()">Add</button>
+                </span>
+            </div>
+            <div class="error-container" ng-show="computerForm.mother.$dirty && computerForm.mother.$invalid">
+                <small class="error" ng-show="computerForm.mother.$error.required">Please select motherboard</small>
+            </div>
+        </div>
+        <div ng-controller="SelectController" ng-show="computerFormData.motherID">
+            <label>Memory: {{ motherboard.slots }} slots</label>
+            <memory-select data-cust-bind-model="computerFormData.slot{{currentSlot}}memoryID" data-slot="1"></memory-select>
+        </div>
+        <div class="form-group">
+            <label for="comp-proc">Processor:</label>
+            <div class="input-group">
+                <select class="form-control validate" id="comp-proc" name="proc" ng-model="computerFormData.procID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
+                    <option value="">Select processor</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="openProcModal()">Add</button>
+                </span>
+            </div>
+            <div class="error-container" ng-show="computerForm.proc.$dirty && computerForm.proc.$invalid">
+                <small class="error" ng-show="computerForm.proc.$error.required">Please select computer processor</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="comp-storage">Storage:</label>
+            <div class="input-group">
+                <select class="form-control validate" id="comp-storage" name="storage" ng-model="computerFormData.storageID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
+                    <option value="">Select storage</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="openStorageModal()">Add</button>
+                </span>
+            </div>
+            <div class="error-container" ng-show="computerForm.storage.$dirty && computerForm.storage.$invalid">
+                <small class="error" ng-show="computerForm.storage.$error.required">Please select computer storage</small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-action clearfix">
+        <div class="pull-right">
+            <input type="submit" class="btn btn-success" value="Add" ng-disabled="computerForm.$invalid">
+            <button type="button" class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
+        </div>
+    </div>
+</form>

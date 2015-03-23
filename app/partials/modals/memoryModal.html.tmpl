@@ -1,0 +1,41 @@
+<form name="memoryForm" novalidate ng-controller="FormController" ng-submit="submitMem()">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="memory-type">Type:</label>
+            <select class="form-control validate" id="memory-type" name="memtype" ng-model="memoryFormData.memtype" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
+                <option value="">Select type</option>
+            </select>
+            <div class="error-container" ng-show="memoryForm.memtype.$dirty && memoryForm.memtype.$invalid">
+                <small class="error" ng-show="memoryForm.memtype.$error.required">Please select memory type</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="memory-size">Size:</label>
+            <div class="input-group">
+                <input type="number" id="memory-size" name="size" class="form-control validate" min="0" aria-describedby="memory-size-addon" ng-model="memoryFormData.size" required>
+                <span class="input-group-addon" id="memory-size-addon">GB</span>
+            </div>
+            <div class="error-container" ng-show="memoryForm.size.$dirty && memoryForm.size.$invalid">
+                <small class="error" ng-show="memoryForm.size.$error.required">This field is required</small>
+                <small class="error" ng-show="memoryForm.size.$error.number">Only numbers</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="memory-rate">Rates:</label>
+            <div class="input-group">
+                <input type="number" id="memory-rate" name="rates" class="form-control validate" min="0" aria-describedby="memry-rate-addon" ng-model="memoryFormData.rates">
+                <span class="input-group-addon" id="memry-rate-addon">MHz</span>
+            </div>
+            <div class="error-container" ng-show="memoryForm.rates.$dirty && memoryForm.rates.$invalid">
+                <small class="error" ng-show="memoryForm.rates.$error.required">This field is required</small>
+                <small class="error" ng-show="memoryForm.rates.$error.number">Only numbers</small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-action clearfix">
+        <div class="pull-right">
+            <input type="submit" class="btn btn-success" value="Add" ng-disabled="memoryForm.$invalid">
+            <button type="button" class="btn btn-default" ng-click="closeThisDialog()">Cancel</button>
+        </div>
+    </div>
+</form>
