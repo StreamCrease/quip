@@ -23,9 +23,28 @@
                 <small class="error" ng-show="computerForm.mother.$error.required">Please select motherboard</small>
             </div>
         </div>
-        <div ng-controller="SelectController" ng-show="computerFormData.motherID">
+        <div ng-controller="MemorySelectController" ng-show="computerFormData.motherID">
             <label>Memory: {{ motherboard.slots }} slots</label>
-            <memory-select data-cust-bind-model="computerFormData.slot{{currentSlot}}memoryID" data-slot="1"></memory-select>
+            <div class="form-group" ng-repeat="memoryID in memories track by $index">
+                <div class="input-group" >
+                    <select class="form-control" name="memory" ng-init="mem = memoryID" ng-options="type.id as type.name for type in MEMORY_TYPES track by mem" ng-disabled="!computerFormData.motherID"  ng-model="memoryID">
+                    </select>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="removeMemory($index)">-{{$index}}</button>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group" >
+                    <select id="memory-select" class="form-control" name="memory" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="!computerFormData.motherID" ng-model="memory">
+                        <option value="">Select memory</option>
+                    </select>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="openMemoryModal()">Add</button>
+                    </span>
+                </div>
+            </div>
+            <!-- <memory-select data-cust-bind-model="computerFormData.slot{{currentSlot}}memoryID" data-slot="1"></memory-select> -->
         </div>
         <div class="form-group">
             <label for="comp-proc">Processor:</label>
