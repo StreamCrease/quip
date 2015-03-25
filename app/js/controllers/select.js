@@ -3,10 +3,11 @@
     'use strict';
 
     angular.module('quipApp').controller('MemorySelectController', ['$scope', function ($scope) {
+        $scope.$parent.computerFormData = {};
         $scope.$parent.computerFormData.memoriesID = [];
 
         $scope.motherboard = {
-            slots: 2
+            slots: 4
         }
 
         $scope.removeMemory = function (array, index) {

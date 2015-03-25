@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="computer in computers | filter:query | orderBy:orderByField:!reverseSort">
+                <tr class="animate-row" ng-repeat="computer in computers | filter:query | orderBy:orderByField:!reverseSort">
                     <td>{{ computer.name }}</td>
                     <td>{{ computer.processor }}</td>
                     <td>{{ computer.memory }}</td>

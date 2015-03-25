@@ -3,7 +3,6 @@
     'use strict';
 
     angular.module('quipApp').controller('FormController', ['$scope', function ($scope) {
-        $scope.computerFormData = {};
 
         $scope.submitComp = function () {
             alert(angular.toJson($scope.computerFormData));

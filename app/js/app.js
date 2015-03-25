@@ -4,6 +4,7 @@
 
     var quipApp = angular.module('quipApp', [
         'ngRoute',
+        'ngAnimate',
         'ngDialog'
     ]);
 

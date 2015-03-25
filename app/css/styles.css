@@ -1,5 +1,37 @@
 body {
+    margin: 50px 0 0;
     overflow: hidden;
+}
+
+.main-view-block {
+    position: relative;
+    height: 378px;
+    overflow-y: auto;
+}
+
+.computers-container,
+.hardwear-container {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+h4 {
+    margin-top: 0;
+    line-height: 34px;
+}
+
+.table-wrap {
+    background: #fff;
 }
 
 .nav,
@@ -17,19 +49,15 @@ body {
   padding-top: 40px;
 }
 
-.navbar {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-}
-
-.main-view-block {
-    height: 378px;
-    overflow-y: auto;
-}
-
 .tabs-container {
+    position: relative;
+}
+
+.tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     min-height: 20px;
     padding: 24px;
     margin-bottom: 20px;
@@ -52,17 +80,8 @@ body {
     border-bottom-color: #f5f5f5;
 }
 
-.table-wrap {
-    background: #fff;
-}
-
 .sortable {
     cursor: pointer;
-}
-
-h4 {
-    margin-top: 0;
-    line-height: 34px;
 }
 
 .modal-body {
@@ -76,7 +95,7 @@ h4 {
     border-radius: 0 0 5px 5px;
 }
 
-/* Form validation styles*/
+/* Angular form validation */
 .validate.ng-dirty.ng-valid {
     border-color: #24A92D;
 }
@@ -97,4 +116,108 @@ h4 {
 
 .error-container .error {
     color: #D11C26;
+}
+
+/* Angular animate */
+
+.animate-row.ng-leave,
+.animate-row.ng-enter,
+.animate-row.ng-move {
+    -webkit-transition: all linear .3s;
+            transition: all linear .3s;
+}
+
+.animate-row.ng-enter,
+.animate-row.ng-move,
+.animate-row.ng-leave.ng-leave-active {
+    opacity: 0.1;
+}
+
+.animate-row.ng-leave,
+.animate-row.ng-move.ng-move-active,
+.animate-row.ng-enter.ng-enter-active {
+    opacity: 0.95;
+}
+
+.hardwear-container.ng-leave,
+.computers-container.ng-leave {
+    -webkit-transition: all linear .15s;
+            transition: all linear .15s;
+}
+
+.computers-container.ng-enter,
+.hardwear-container.ng-enter {
+    -webkit-transition: all linear .15s;
+            transition: all linear .15s;
+    -webkit-transition-delay: .15s;
+            transition-delay: .15s;
+}
+
+.computers-container.ng-enter,
+.computers-container.ng-leave.ng-leave-active,
+.hardwear-container.ng-enter,
+.hardwear-container.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+.computers-container.ng-leave,
+.computers-container.ng-enter.ng-enter-active,
+.hardwear-container.ng-leave,
+.hardwear-container.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.animate-memory-form-group.ng-enter,
+.animate-memory-form-group.ng-leave,
+.animate-memory-form-group.ng-move {
+    -webkit-transition: all linear .3s;
+            transition: all linear .3s;
+}
+
+.animate-memory-form-group.ng-move,
+.animate-memory-form-group.ng-enter {
+    overflow: hidden;
+}
+.animate-memory-form-group.ng-move,
+.animate-memory-form-group.ng-enter,
+.animate-memory-form-group.ng-leave.ng-leave-active {
+    opacity: 0.1;
+    max-height: 0;
+}
+
+.animate-memory-form-group.ng-leave,
+.animate-memory-form-group.ng-move.ng-move-active,
+.animate-memory-form-group.ng-enter.ng-enter-active {
+    opacity: 1;
+    max-height: 36px;
+    overflow: hidden;
+}
+
+/* hide/show animation */
+
+.tab.ng-hide-add-active {
+    -webkit-transition: all linear .15s;
+            transition: all linear .15s;
+}
+
+.tab.ng-hide-remove-active {
+    -webkit-transition: all linear .15s;
+            transition: all linear .15s;
+    -webkit-transition-delay: .15s;
+            transition-delay: .15s;
+}
+
+.tab.ng-hide {
+    opacity: 0;
+}
+
+.animate-memory.ng-hide-remove {
+    max-height: 999px;
+    overflow: hidden;
+    -webkit-transition: max-height linear 4s;
+            transition: max-height linear 4s;
+}
+
+.animate-memory.ng-hide {
+    max-height: 0;
 }

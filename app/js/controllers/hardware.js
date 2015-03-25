@@ -3,8 +3,9 @@
     'use strict';
 
     angular.module('quipApp').controller('HardwareController', ['$scope', function ($scope) {
-
+        $scope.pageClass = 'hardwear-container';
         $scope.tab = 0;
+
         $scope.changeTab = function (newTab) {
             $scope.tab = newTab;
         };
