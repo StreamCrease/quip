@@ -10,41 +10,39 @@
         <div class="form-group">
             <label for="comp-mother">Motherboard:</label>
             <div class="input-group">
-                <select class="form-control validate" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.slot1memoryID || computerFormData.slot2memoryID ||
-                computerFormData.slot3memoryID ||
-                computerFormData.slot4memoryID" required>
+                <select class="form-control validate" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.memoriesID.length > 0" required>
                     <option value="">Select motherboard</option>
                 </select>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="openMotherModal()">Add</button>
+                    <button class="btn btn-default" type="button" ng-click="openMotherModal()"><span class="glyphicon glyphicon-plus"></span></button>
                 </span>
             </div>
             <div class="error-container" ng-show="computerForm.mother.$dirty && computerForm.mother.$invalid">
                 <small class="error" ng-show="computerForm.mother.$error.required">Please select motherboard</small>
             </div>
         </div>
-        <div ng-controller="MemorySelectController" ng-show="computerFormData.motherID">
+        <div ng-controller="MemorySelectController" ng-show="computerForm.mother.$valid">
             <label>Memory: {{ motherboard.slots }} slots</label>
-            <div class="form-group" ng-repeat="memoryID in memories track by $index">
+            <div class="form-group" ng-repeat="memoryID in computerFormData.memoriesID track by $index">
                 <div class="input-group" >
-                    <select class="form-control" name="memory" ng-init="mem = memoryID" ng-options="type.id as type.name for type in MEMORY_TYPES track by mem" ng-disabled="!computerFormData.motherID"  ng-model="memoryID">
+                    <select class="form-control" name="memory" ng-disabled="computerForm.mother.$invalid"  ng-model="computerFormData.memoriesID[$index]">
+                        <option value="{{ type.id }}" ng-selected="{{ type.id == memoryID }}" ng-repeat="type in MEMORY_TYPES track by type.id">{{ type.name }}</option>
                     </select>
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="removeMemory($index)">-{{$index}}</button>
+                        <button class="btn btn-default" type="button" ng-click="removeMemory(computerFormData.memoriesID, $index)"><span class="glyphicon glyphicon-minus"></span></button>
                     </span>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="input-group" >
-                    <select id="memory-select" class="form-control" name="memory" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="!computerFormData.motherID" ng-model="memory">
+            <div class="form-group" memory-input ng-class="{ hidden: computerFormData.memoriesID.length == motherboard.slots }" >
+                <div class="input-group">
+                    <select id="memory-select" class="form-control" name="memory" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerForm.mother.$invalid" ng-model="memory">
                         <option value="">Select memory</option>
                     </select>
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="openMemoryModal()">Add</button>
+                        <button class="btn btn-default" type="button" ng-click="openMemoryModal()"><span class="glyphicon glyphicon-plus"></span></button>
                     </span>
                 </div>
             </div>
-            <!-- <memory-select data-cust-bind-model="computerFormData.slot{{currentSlot}}memoryID" data-slot="1"></memory-select> -->
         </div>
         <div class="form-group">
             <label for="comp-proc">Processor:</label>
@@ -53,7 +51,7 @@
                     <option value="">Select processor</option>
                 </select>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="openProcModal()">Add</button>
+                    <button class="btn btn-default" type="button" ng-click="openProcModal()"><span class="glyphicon glyphicon-plus"></span></button>
                 </span>
             </div>
             <div class="error-container" ng-show="computerForm.proc.$dirty && computerForm.proc.$invalid">
@@ -67,7 +65,7 @@
                     <option value="">Select storage</option>
                 </select>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="openStorageModal()">Add</button>
+                    <button class="btn btn-default" type="button" ng-click="openStorageModal()"><span class="glyphicon glyphicon-plus"></span></button>
                 </span>
             </div>
             <div class="error-container" ng-show="computerForm.storage.$dirty && computerForm.storage.$invalid">

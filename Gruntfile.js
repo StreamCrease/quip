@@ -28,7 +28,7 @@ module.exports = function (grunt) {
         },
         htmlangular: {
             options: {
-                customtags: ['memory-select'],
+                customattrs: ['memory-input'],
                 // wrap templates as complite HTML pages
                 tmplext: 'html.tmpl',
                 reportpath: 'log/html-angular-validate-report.json'
