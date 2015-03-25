@@ -10,7 +10,7 @@
         <div class="form-group">
             <label for="comp-mother">Motherboard:</label>
             <div class="input-group">
-                <select class="form-control validate" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.memoriesID.length > 0"required>
+                <select class="form-control validate" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.memoriesID.length > 0" required>
                     <option value="">Select motherboard</option>
                 </select>
                 <span class="input-group-btn">
