@@ -6,7 +6,6 @@
         'ngRoute',
         'ngDialog'
     ]);
-
     quipApp.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/computers', {
                 templateUrl: 'partials/computers.html.tmpl',
