@@ -20,8 +20,8 @@
             </button>
         </div>
         <h4>Total: {{ motherboards.length }}</h4>
-        <div class="table-wrap">
-            <table class="table table-bordered">
+        <div class="table-wrap scrollable-area">
+            <table class="table" fixed-table-headers="scrollable-area">
                 <thead>
                     <tr>
                         <th class="sortable" sortable order="'manufacturer'" by="order" reverse="reverse">Manufacturer</th>
@@ -48,8 +48,8 @@
             </button>
         </div>
         <h4>Total: {{ processors.length }}</h4>
-        <div class="table-wrap">
-            <table class="table table-bordered">
+        <div class="table-wrap scrollable-area">
+            <table class="table" fixed-table-headers="scrollable-area">
                 <thead>
                     <tr>
 
@@ -79,8 +79,8 @@
             </button>
         </div>
         <h4>Total: {{ memory.length }}</h4>
-        <div class="table-wrap">
-            <table class="table table-bordered">
+        <div class="table-wrap scrollable-area">
+            <table class="table" fixed-table-headers="scrollable-area">
                 <thead>
                     <tr>
                         <th class="sortable" sortable order="'MEMORY_TYPES[mem.type]'" by="order" reverse="reverse">Type</th>
@@ -107,8 +107,8 @@
             </button>
         </div>
         <h4>Total: {{ storage.length }}</h4>
-        <div class="table-wrap">
-            <table class="table table-bordered">
+        <div class="table-wrap scrollable-area">
+            <table class="table" fixed-table-headers="scrollable-area">
                 <thead>
                     <tr>
                         <th class="sortable" sortable order="'STORAGE_TYPES[hardw.type]'" by="order" reverse="reverse">Type</th>
