@@ -1,4 +1,3 @@
-/* global exports */
 (function () {
     'use strict';
 

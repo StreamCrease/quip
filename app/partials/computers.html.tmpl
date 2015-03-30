@@ -1,5 +1,5 @@
-<div class="well well-lg" ng-controller="ModalController">
-    <div class="pull-right">
+<div class="well well-lg">
+    <div class="pull-right" ng-controller="ModalController">
         <button type="button" class="btn btn-success" ng-click="openComputerModal()">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
         </button>
@@ -9,14 +9,14 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th class="sortable" ng-click="orderByField='name'; reverseSort=!reverseSort">Name</th>
-                    <th class="sortable" ng-click="orderByField='processor'; reverseSort=!reverseSort">Processor</th>
-                    <th class="sortable" ng-click="orderByField='memory'; reverseSort=!reverseSort">Memory</th>
-                    <th class="sortable" ng-click="orderByField='graphics'; reverseSort=!reverseSort">Graphics</th>
+                    <th class="sortable" sortable order="'name'" by="order" reverse="reverse">Name</th>
+                    <th class="sortable" sortable order="'processor'" by="order" reverse="reverse">Processor</th>
+                    <th class="sortable" sortable order="'memory'" by="order" reverse="reverse">Memory</th>
+                    <th class="sortable" sortable order="'graphics'" by="order" reverse="reverse">Graphics</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="animate-row" ng-repeat="computer in computers | filter:query | orderBy:orderByField:!reverseSort">
+                <tr class="animate-row" ng-repeat="computer in computers | filter:query | orderBy:order:reverse">
                     <td>{{ computer.name }}</td>
                     <td>{{ computer.processor }}</td>
                     <td>{{ computer.memory }}</td>

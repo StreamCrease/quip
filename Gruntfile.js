@@ -1,4 +1,3 @@
-/* global module */
 module.exports = function (grunt) {
     'use strict';
 
@@ -6,7 +5,7 @@ module.exports = function (grunt) {
         jscs: {
             files: ['Gruntfile.js', 'app/js/**/*.js', 'test/**/*.js'],
             options: {
-                jscs: '.jscsrc'
+                config: '.jscsrc'
             }
         },
         jshint: {
@@ -23,12 +22,9 @@ module.exports = function (grunt) {
                 }
             }
         },
-        csslint: {
-            files: ['app/css/*.css']
-        },
         htmlangular: {
             options: {
-                customattrs: ['memory-input'],
+                customattrs: ['memory-input', 'sortable', 'by', 'order', 'reverse'],
                 // wrap templates as complite HTML pages
                 tmplext: 'html.tmpl',
                 reportpath: 'log/html-angular-validate-report.json'
@@ -47,12 +43,11 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-html-angular-validate');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-newer');
 
-    grunt.registerTask('default', ['jshint', 'csslint', 'htmlangular', 'watch']);
+    grunt.registerTask('default', ['jscs', 'jshint', 'htmlangular', 'watch']);
 
 };
