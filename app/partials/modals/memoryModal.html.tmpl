@@ -23,7 +23,7 @@
         <div class="form-group">
             <label for="memory-rate">Rates:</label>
             <div class="input-group">
-                <input type="number" id="memory-rate" name="rates" class="form-control validate" min="0" aria-describedby="memry-rate-addon" ng-model="memoryFormData.rates">
+                <input type="number" id="memory-rate" name="rates" class="form-control validate" min="0" aria-describedby="memry-rate-addon" ng-model="memoryFormData.rates" required>
                 <span class="input-group-addon" id="memry-rate-addon">MHz</span>
             </div>
             <div class="error-container" ng-show="memoryForm.rates.$dirty && memoryForm.rates.$invalid">

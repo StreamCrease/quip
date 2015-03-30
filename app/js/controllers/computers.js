@@ -1,8 +1,8 @@
-/* global angular */
 (function () {
     'use strict';
 
     angular.module('quipApp').controller('ComputersController', ['$scope', function ($scope) {
+        $scope.pageClass = 'computers-container';
 
         $scope.computers = [
             { name: 'MBPro', processor: '2.5 GHz Intel Core i5', memory: '8 GB 1600 MHz DDR3', graphics: 'Intel HD Graphics 4000 1024 MB' },

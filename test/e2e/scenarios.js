@@ -1,5 +1,3 @@
-/* global describe, it, expect, browser, beforeEach, by, element */
-
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 (function () {
     'use strict';

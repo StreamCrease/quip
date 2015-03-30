@@ -1,5 +1,65 @@
 body {
+    margin: 50px 0 0;
     overflow: hidden;
+}
+
+/* remove webkit outline and add box-shadow instead */
+a:focus,
+a:active:focus,
+a.active:focus,
+a.focus,
+a:active.focus,
+a.active.focus,
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: 0;
+}
+
+.navbar a:focus,
+.nav-tabs > li:focus{
+    outline: 0;
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+.main-view-block {
+    position: relative;
+    /*height: 378px;
+    overflow-y: auto;*/
+}
+
+.computers-container,
+.hardwear-container {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+h4 {
+    margin-top: 0;
+    line-height: 34px;
+}
+
+.table-wrap {
+    background: #fff;
+}
+
+tbody {
+  max-height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .nav,
@@ -17,19 +77,15 @@ body {
   padding-top: 40px;
 }
 
-.navbar {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-}
-
-.main-view-block {
-    height: 378px;
-    overflow-y: auto;
-}
-
 .tabs-container {
+    position: relative;
+}
+
+.tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     min-height: 20px;
     padding: 24px;
     margin-bottom: 20px;
@@ -41,28 +97,92 @@ body {
 }
 
 .nav-tabs>li.active>a,
-.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active:focus>a,
 .nav-tabs>li.active>a:hover {
     background: #f5f5f5;
 }
 
-.nav-tabs.nav-justified>.active>a,
-.nav-tabs.nav-justified>.active>a:focus,
-.nav-tabs.nav-justified>.active>a:hover {
+.nav-tabs.nav-justified>li.active>a,
+.nav-tabs.nav-justified>li.active:focus>a,
+.nav-tabs.nav-justified>li.active>a:hover {
     border-bottom-color: #f5f5f5;
 }
 
-.table-wrap {
-    background: #fff;
-}
-
-.sortable {
+/* sortable tables */
+th.sortable {
     cursor: pointer;
 }
 
-h4 {
-    margin-top: 0;
-    line-height: 34px;
+th.sortable .sort-indicator {
+    padding-right: 18px;
+    position: relative;
+}
+
+th.sortable .sort-indicator:after,
+th.sortable .sort-indicator:before {
+    content: "";
+    border-width: 0 4px 4px;
+    border-style: solid;
+    border-color: #000 transparent;
+    visibility: visible;
+    right: 5px;
+    top: 50%;
+    position: absolute;
+    opacity: .3;
+    margin-top: -4px;
+}
+
+th.sortable .sort-indicator:before {
+    margin-top: 2px;
+    border-bottom: none;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #000;
+}
+
+th.sortable .sort-indicator:hover:after,
+th.sortable .sort-indicator:hover:before {
+    opacity: 1;
+    visibility: visible;
+}
+
+th.sortable.sort-desc,
+th.sortable.sort-asc {
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+th.sortable.sort-desc .sort-indicator:after,
+th.sortable.sort-asc .sort-indicator:after {
+    margin-top: -2px;
+}
+
+th.sortable.sort-desc .sort-indicator:before,
+th.sortable.sort-asc .sort-indicator:before {
+    visibility: hidden;
+}
+
+th.sortable.sort-asc .sort-indicator:after,
+th.sortable.sort-asc .sort-indicator:hover:after {
+    visibility: visible;
+    filter: alpha(opacity=60);
+    -khtml-opacity: 0.6;
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+}
+
+th.sortable.sort-desc .sort-indicator:after {
+    border-bottom: none;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #000;
+    visibility: visible;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    filter: alpha(opacity=60);
+    -khtml-opacity: 0.6;
+    -moz-opacity: 0.6;
+    opacity: 0.6;
 }
 
 .modal-body {
@@ -76,7 +196,7 @@ h4 {
     border-radius: 0 0 5px 5px;
 }
 
-/* Form validation styles*/
+/* Angular form validation */
 .validate.ng-dirty.ng-valid {
     border-color: #24A92D;
 }
@@ -99,3 +219,106 @@ h4 {
     color: #D11C26;
 }
 
+/* Angular animate */
+
+.animate-row.ng-leave,
+.animate-row.ng-enter,
+.animate-row.ng-move {
+    -webkit-transition: all linear .3s;
+            transition: all linear .3s;
+}
+
+.animate-row.ng-enter,
+.animate-row.ng-move,
+.animate-row.ng-leave.ng-leave-active {
+    opacity: 0.1;
+}
+
+.animate-row.ng-leave,
+.animate-row.ng-move.ng-move-active,
+.animate-row.ng-enter.ng-enter-active {
+    opacity: 0.95;
+}
+
+.hardwear-container.ng-leave,
+.computers-container.ng-leave {
+    -webkit-transition: all linear .15s;
+            transition: all linear .15s;
+}
+
+.computers-container.ng-enter,
+.hardwear-container.ng-enter {
+    -webkit-transition: all linear .15s;
+            transition: all linear .15s;
+    -webkit-transition-delay: .15s;
+            transition-delay: .15s;
+}
+
+.computers-container.ng-enter,
+.computers-container.ng-leave.ng-leave-active,
+.hardwear-container.ng-enter,
+.hardwear-container.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+.computers-container.ng-leave,
+.computers-container.ng-enter.ng-enter-active,
+.hardwear-container.ng-leave,
+.hardwear-container.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.animate-memory-form-group.ng-enter,
+.animate-memory-form-group.ng-leave,
+.animate-memory-form-group.ng-move {
+    -webkit-transition: all linear .3s;
+            transition: all linear .3s;
+}
+
+.animate-memory-form-group.ng-move,
+.animate-memory-form-group.ng-enter {
+    overflow: hidden;
+}
+.animate-memory-form-group.ng-move,
+.animate-memory-form-group.ng-enter,
+.animate-memory-form-group.ng-leave.ng-leave-active {
+    opacity: 0.1;
+    max-height: 0;
+}
+
+.animate-memory-form-group.ng-leave,
+.animate-memory-form-group.ng-move.ng-move-active,
+.animate-memory-form-group.ng-enter.ng-enter-active {
+    opacity: 1;
+    max-height: 36px;
+    overflow: hidden;
+}
+
+/* hide/show animation */
+
+.tab.ng-hide-add-active {
+    -webkit-transition: all linear .15s;
+            transition: all linear .15s;
+}
+
+.tab.ng-hide-remove-active {
+    -webkit-transition: all linear .15s;
+            transition: all linear .15s;
+    -webkit-transition-delay: .15s;
+            transition-delay: .15s;
+}
+
+.tab.ng-hide {
+    opacity: 0;
+}
+
+.animate-memory.ng-hide-remove {
+    max-height: 999px;
+    overflow: hidden;
+    -webkit-transition: max-height linear 4s;
+            transition: max-height linear 4s;
+}
+
+.animate-memory.ng-hide {
+    max-height: 0;
+}
