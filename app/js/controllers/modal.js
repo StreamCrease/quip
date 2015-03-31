@@ -1,4 +1,3 @@
-/* global angular */
 (function () {
     'use strict';
 
@@ -29,9 +28,6 @@
         $scope.openMemoryModal = function () {
             ngDialog.open({
                 template: 'partials/modals/memoryModal.html.tmpl',
-                trapFocus: true,
-                preserveFocus: true,
-                ariaAuto: true,
                 scope: $scope
             });
         };

@@ -1,9 +1,9 @@
-/* global angular */
 (function () {
     'use strict';
 
     var quipApp = angular.module('quipApp', [
         'ngRoute',
+        'ngAnimate',
         'ngDialog'
     ]);
 

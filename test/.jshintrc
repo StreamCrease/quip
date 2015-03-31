@@ -10,5 +10,20 @@
   "nonbsp"   : true,
   "strict"   : true,
   "undef"    : true,
-  "unused"   : false
+  "unused"   : false,
+  "globals"  : {
+    "describe"   : false,
+    "it"         : false,
+    "before"     : false,
+    "beforeEach" : false,
+    "after"      : false,
+    "afterEach"  : false,
+    "expect"     : false,
+    "module"     : false,
+    "inject"     : false,
+    "browser"    : false,
+    "element"    : false,
+    "by"         : false,
+    "exports"    : false
+  }
 }

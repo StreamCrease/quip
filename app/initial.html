@@ -3,10 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>Quip</title>
+    <!-- @if NODE_ENV == 'development' -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog.css">
     <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog-theme-default.css">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- @endif -->
+
+    <!-- @if NODE_ENV == 'production' -->
+    <link rel="stylesheet" href="css/styles.min.css">
+    <!-- @endif -->
 </head>
 <body ng-controller="SearchController">
     <nav class="navbar navbar-default navbar-fixed-top" ng-controller="HeaderController">
@@ -28,6 +34,7 @@
         <div ng-class="pageClass" ng-view></div>
     </div>
 
+    <!-- @if NODE_ENV == 'development' -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -43,5 +50,11 @@
     <script src="js/controllers/form.js"></script>
     <script src="js/controllers/select.js"></script>
     <script src="js/controllers/search.js"></script>
+    <!-- @endif -->
+
+    <!-- @if NODE_ENV == 'production' -->
+    <script src="js/quip.min.js"></script>
+    <!-- @endif -->
+
 </body>
 </html>
