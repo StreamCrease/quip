@@ -10,6 +10,7 @@
         require('./memoryModel')(orm, db);
         require('./motherboardsModel')(orm, db);
         require('./processorsModel')(orm, db);
+        require('./computerModel')(orm, db);
 
         return cb(null, db);
     }

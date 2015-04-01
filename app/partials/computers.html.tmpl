@@ -12,7 +12,8 @@
                     <th class="sortable" ng-click="orderByField='name'; reverseSort=!reverseSort">Name</th>
                     <th class="sortable" ng-click="orderByField='processor'; reverseSort=!reverseSort">Processor</th>
                     <th class="sortable" ng-click="orderByField='memory'; reverseSort=!reverseSort">Memory</th>
-                    <th class="sortable" ng-click="orderByField='graphics'; reverseSort=!reverseSort">Graphics</th>
+                    <th class="sortable" ng-click="orderByField='motherboards'; reverseSort=!reverseSort">Motherboard</th>
+                    <th class="sortable" ng-click="orderByField='storage'; reverseSort=!reverseSort">Storage</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,7 +21,8 @@
                     <td>{{ computer.name }}</td>
                     <td>{{ computer.processor }}</td>
                     <td>{{ computer.memory }}</td>
-                    <td>{{ computer.graphics }}</td>
+                    <td>{{ computer.motherboards }}</td>
+                    <td>{{ computer.storage}}</td>
                 </tr>
             </tbody>
         </table>

@@ -7,5 +7,6 @@
         $scope.motherboard = {
             slots: 4
         }
+        console.log($scope.motherboards);
     }]);
 })();

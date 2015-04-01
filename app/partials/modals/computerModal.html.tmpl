@@ -10,7 +10,7 @@
         <div class="form-group">
             <label for="comp-mother">Motherboard:</label>
             <div class="input-group">
-                <select class="form-control validate" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.slot1memoryID || computerFormData.slot2memoryID ||
+                <select class="form-control validate" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.manufacturer for type in motherboards" ng-disabled="computerFormData.slot1memoryID || computerFormData.slot2memoryID ||
                 computerFormData.slot3memoryID ||
                 computerFormData.slot4memoryID" required>
                     <option value="">Select motherboard</option>
@@ -24,13 +24,13 @@
             </div>
         </div>
         <div ng-controller="SelectController" ng-show="computerFormData.motherID">
-            <label>Memory: {{ motherboard.slots }} slots</label>
+            <label>Memory: {{motherboards.memorySlots }} slots</label>
             <memory-select data-cust-bind-model="computerFormData.slot{{currentSlot}}memoryID" data-slot="1"></memory-select>
         </div>
         <div class="form-group">
             <label for="comp-proc">Processor:</label>
             <div class="input-group">
-                <select class="form-control validate" id="comp-proc" name="proc" ng-model="computerFormData.procID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
+                <select class="form-control validate" id="comp-proc" name="proc" ng-model="computerFormData.procID" ng-options="type.id as type.name for type in processors" required>
                     <option value="">Select processor</option>
                 </select>
                 <span class="input-group-btn">
