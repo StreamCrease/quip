@@ -11,6 +11,7 @@
             <label for="comp-mother">Motherboard:</label>
             <div class="input-group">
                 <select class="form-control validate" id="comp-mother" name="mother" ng-model="computerFormData.motherID" ng-options="type.id as type.name for type in MEMORY_TYPES" ng-disabled="computerFormData.memoriesID.length > 0" required>
+
                     <option value="">Select motherboard</option>
                 </select>
                 <span class="input-group-btn">
@@ -47,7 +48,7 @@
         <div class="form-group">
             <label for="comp-proc">Processor:</label>
             <div class="input-group">
-                <select class="form-control validate" id="comp-proc" name="proc" ng-model="computerFormData.procID" ng-options="type.id as type.name for type in MEMORY_TYPES" required>
+                <select class="form-control validate" id="comp-proc" name="proc" ng-model="computerFormData.procID" ng-options="type.id as type.name for type in processors" required>
                     <option value="">Select processor</option>
                 </select>
                 <span class="input-group-btn">

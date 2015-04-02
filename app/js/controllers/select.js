@@ -9,6 +9,7 @@
         $scope.motherboard = {
             slots: 4
         }
+
         $scope.MEMORY_TYPES = [
             { id: 1, name: 'DDR' },
             { id: 2, name: 'DDR2'},
