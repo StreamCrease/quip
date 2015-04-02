@@ -22,7 +22,7 @@ build/Release
 # Dependency directory
 # Commenting this out is preferred by some people, see
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
-#node_modules
+/node_modules
 app/bower_components
 
 # Users Environment Variables
@@ -30,3 +30,6 @@ app/bower_components
 
 # Grunt plugins log files
 /log
+
+# IDE idea
+.idea
