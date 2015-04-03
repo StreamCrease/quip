@@ -28,12 +28,15 @@ app/bower_components
 # Users Environment Variables
 .lock-wscript
 
-# Grunt plugins log files
-/log
 
-# Production directory
-/prod
+
 
 # IDE idea
 .idea
+
+
+# NodeWebkit build directory
+/prod
+/webkitbuilds
+/cache
 

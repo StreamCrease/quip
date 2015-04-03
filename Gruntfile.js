@@ -2,6 +2,15 @@ module.exports = function (grunt) {
     'use strict';
 
     grunt.initConfig({
+        connect: {
+            server: {
+                options: {
+                    port: 8000,
+                    hostname: 'localhost',
+                    livereload: true
+                }
+            }
+        },
         jscs: {
             files: ['Gruntfile.js', 'app/js/**/*.js', 'test/**/*.js'],
             options: {
@@ -49,7 +58,8 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            dist: 'prod/'
+            before: ['prod/'],
+            afterMinify: ['prod/js/*.js', 'prod/css/*.css', '!prod/css/*.min.css', '!prod/js/*.min.js']
         },
         preprocess: {
             dev: {
@@ -69,14 +79,20 @@ module.exports = function (grunt) {
                 expand: true
             },
             partials: {
-                cwd: 'app/partials/',
-                src: '**/*',
-                dest: 'prod/partials/',
+                cwd: 'app/',
+                src: 'partials/**/*',
+                dest: 'prod/',
                 expand: true
             },
             packagejson: {
                 cwd: 'app/',
                 src: 'package.json',
+                dest: 'prod/',
+                expand: true
+            },
+            node_modules: {
+                cwd: 'app/',
+                src: 'node_modules/**/*',
                 dest: 'prod/',
                 expand: true
             }
@@ -120,9 +136,17 @@ module.exports = function (grunt) {
                 src: 'prod/css/styles.css',
                 dest: 'prod/css/styles.min.css'
             }
+        },
+        nodewebkit: {
+            options: {
+                platforms: ['win', 'osx', 'linux'],
+                buildDir: './webkitbuilds'
+            },
+            src: ['./prod/**/*']
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-html-angular-validate');
@@ -135,8 +159,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-preprocess');
+    grunt.loadNpmTasks('grunt-node-webkit-builder');
 
-    grunt.registerTask('default', ['jscs', 'jshint', 'env:dev', 'htmlangular', 'preprocess:dev', 'watch']);
-    grunt.registerTask('build', ['jscs', 'jshint', 'env:prod', 'clean', 'copy', 'concat', 'uglify', 'cssmin', 'preprocess:prod']);
+    grunt.registerTask('default', ['jscs', 'jshint', 'env:dev', 'htmlangular', 'preprocess:dev', 'connect:server', 'watch']);
+    grunt.registerTask('build', ['jscs', 'jshint', 'env:prod', 'clean:before', 'copy', 'concat', 'uglify', 'cssmin', 'clean:afterMinify', 'preprocess:prod', 'nodewebkit']);
 
 };
