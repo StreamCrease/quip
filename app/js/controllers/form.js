@@ -5,6 +5,46 @@
 
         var models = require('./js/models/');
 
+        $scope.motherboard = {};
+        $scope.motherboard.slots = 0;
+        $scope.memories=[];
+        $scope.storages=[];
+
+        models(function (err, db) {
+            var Memory=db.models.memory;
+            var Storage=db.models.storage;
+            Memory.find({}, function (err, data) {
+                if (err) {
+                    throw err;
+                } else {
+                    $scope.$apply(function () {
+                        $scope.memories=data;
+                     //   console.log($scope.memories);
+
+                    });
+                }
+            });
+            Storage.find({}, function (err, data) {
+                if (err) {
+                    throw err;
+                } else {
+                    $scope.$apply(function () {
+                        $scope.storages=data;
+
+                    });
+                }
+            });
+
+        });
+        //console.log($scope.$parent.motherboards);
+        //console.log($scope.$parent.computerFormData.memories);
+
+        $scope.$watch('computerFormData.motherID', function (newval, oldval) {
+            if(!!newval && newval !== oldval) {
+                $scope.motherboard.slots = $scope.motherboards[newval].memorySlots;
+            }
+        });
+
         $scope.submitComp = function () {
             // alert(angular.toJson($scope.computerFormData));
         };

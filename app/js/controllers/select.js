@@ -6,18 +6,15 @@
         $scope.$parent.computerFormData.memories = [];
         $scope.slotID = 0;
 
-        $scope.motherboard = {
-            slots: 4
-        }
+        var models = require('./js/models/');
 
-        $scope.MEMORY_TYPES = [
-            { id: 1, name: 'DDR' },
-            { id: 2, name: 'DDR2'},
-            { id: 3, name: 'DDR3'}
-        ];
+        models(function (err, db) {
+            var memories = db.models.memory;
+            memories.find({}, function (err, data) {
 
+            })
+        })
         $scope.removeMemory = function (array, index) {
-
             array.splice(index, 1);
         };
 
