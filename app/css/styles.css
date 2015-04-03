@@ -2,6 +2,11 @@ body {
     margin: 50px 0 0;
     overflow: hidden;
 }
+* {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+              user-select: none;
+}
 
 /* remove webkit outline and add box-shadow instead */
 a:focus,
@@ -75,6 +80,7 @@ h4 {
 }
 
 .table td {
+    cursor: default;
     border-left: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
@@ -157,8 +163,8 @@ th.sortable .sort-indicator:before {
     border-top: 4px solid #000;
 }
 
-th.sortable .sort-indicator:hover:after,
-th.sortable .sort-indicator:hover:before {
+th.sortable:hover .sort-indicator:after,
+th.sortable:hover .sort-indicator:before {
     opacity: 1;
     visibility: visible;
 }
